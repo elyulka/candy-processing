@@ -6,3 +6,4 @@
 /.jsweet/
 /dist
 /processing
+/src/main/resources/META-INF/resources/webjars/processing/**/*.d.ts
