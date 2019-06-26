@@ -4,6 +4,11 @@
 	<groupId>org.jsweet.candies</groupId>
 	<artifactId>processing</artifactId>
 	<version>3.3.7-SNAPSHOT</version>
+	<scm>
+		<connection>scm:git:ssh://git@github.com:jsweet-candies/candy-processing.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:jsweet-candies/candy-processing.git</developerConnection>
+		<url>git:ssh://git@github.com:jsweet-candies/candy-processing.git</url>
+	</scm>
 	<repositories>
 		<repository>
 			<id>jsweet-central</id>
@@ -46,6 +51,7 @@
 	</dependencies>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
+		<finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -53,6 +59,43 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>exec1</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>exec2</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>create-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- check if local repo has no updated files to ensure files represent commit without changes -->
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<shortRevisionLength>7</shortRevisionLength>
+					<attach>true</attach>
+					<!--make it available for jar/war classpath resource -->
+					<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
