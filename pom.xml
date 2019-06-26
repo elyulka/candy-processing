@@ -4,9 +4,9 @@
 	<artifactId>processing</artifactId>
 	<version>3.3.7</version>
 	<scm>
-		<connection>scm:git:ssh://git@github.com:jsweet-candies/candy-processing.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:jsweet-candies/candy-processing.git</developerConnection>
-		<url>git:ssh://git@github.com:jsweet-candies/candy-processing.git</url>
+		<connection>scm:git:ssh://git@github.com/jsweet-candies/candy-processing.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jsweet-candies/candy-processing.git</developerConnection>
+		<url>git:ssh://git@github.com/jsweet-candies/candy-processing.git</url>
 	  <tag>3.3.7</tag>
   </scm>
 	<repositories>
